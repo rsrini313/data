@@ -1,7 +1,9 @@
-select  C1.stdy_id,LISTAGG (DISTINCT C2.proj_cd, ',') PROJECTCODE, LISTAGG(DISTINCT(C2.TMF_PLTFM),',' )TMFPLTFM,
- C2.iss_pri_src_sys_nm 
-from RDSCDASDF.S_CARPT.VW_STDY_DIM C1 Left outer JOIN RDSCDASDF.S_CARPT.VW_STDY_PROJ_DIM C2 on C1.STDY_ID=C2.STDY_ID where C1.stdy_id='CAEL101-301'AND c2.iss_pri_src_sys_nm IN ('CTMS', 'NOVIL2') GROUP BY C1.stdy_id,C2.iss_pri_src_sys_nm ;
-
+ 
+Select * from RDSCDASDF.S_CARPT.VW_DOC_TRK_FACT S1 where S1.stdy_id='CAEL101-301' AND S1.STDY_SITE_KEY='8003775298230106623';
+SELECT Distinct S1.stdy_id,S1.DOC_TRK_ID,S1.ITEM_STAT, S1.DOC_NM FROM RDSCDASDF.S_CARPT.VW_DOC_TRK_FACT S1, RDSCDASDF.S_CARPT.VW_DOC_DIM S2, Where S1.DOC_KEY=S2.DOC_KEY AND S1.ITEM_STAT in ('Fulfilled')-----,'Fulfilled with Reason','Pending','Proposed','Unfulfilled')
+AND S1.IBR_FLG ='TMF' AND S1.SRC_SYS_NM = 'WINGSPAN' AND S1.DOC_STAT NOT IN ('Cancelled', 'Obsolete', 'Superseded') 
+AND S2.VRTLLY_DEL_IND = '0' AND S1.PAST_DUE_IND = 'Past Due' AND S1.STDY_ID='213749';---'K-877-302'---''APD334-202';--'D4191C00001';
+;--  '1378-0020'
 
 /////////////////////
 
