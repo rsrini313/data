@@ -1,0 +1,3 @@
+select  C1.stdy_id,LISTAGG (DISTINCT C2.proj_cd, ',') PROJECTCODE, LISTAGG(DISTINCT(C2.TMF_PLTFM),',' )TMFPLTFM,
+ C2.iss_pri_src_sys_nm 
+from RDSCDASDF.S_CARPT.VW_STDY_DIM C1 Left outer JOIN RDSCDASDF.S_CARPT.VW_STDY_PROJ_DIM C2 on C1.STDY_ID=C2.STDY_ID where C1.stdy_id='CAEL101-301'AND c2.iss_pri_src_sys_nm IN ('CTMS', 'NOVIL2') GROUP BY C1.stdy_id,C2.iss_pri_src_sys_nm ;
