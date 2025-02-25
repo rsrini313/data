@@ -1,4 +1,40 @@
- 
+////
+///////
+select distinct TMF_PLTFM,C2.iss_pri_src_sys_nm
+from RDSCDASDF.S_CARPT.VW_STDY_DIM C1 left outer JOIN RDSCDASDF.S_CARPT.VW_STDY_PROJ_DIM C2 on C1.STDY_ID=C2.STDY_ID
+where 
+c2.iss_pri_src_sys_nm IN ('CTMS','NOVIL2') ;
+
+
+/////
+Customer eTMF System	CTMS
+Customer eTMF System.Other	CTMS
+Customer eTMF System.Other	NOVIL2
+Customer eTMF System.Other,Customer eTMF System.Veeva	CTMS
+Customer eTMF System.Other,No TMF,No TMF	CTMS
+Customer eTMF System.Phlexglobal	CTMS
+Customer eTMF System.Trial Interactive	NOVIL2
+Customer eTMF System.Veeva	CTMS
+Customer eTMF System.Wingspan	CTMS
+IQVIA eTMF ELVIS	CTMS
+IQVIA eTMF Wingspan	NOVIL2
+IQVIA eTMF Wingspan	CTMS
+IQVIA eTMF Wingspan,IQVIA eTMF Wingspan	NOVIL2
+IQVIA eTMF Wingspan,IQVIA eTMF Wingspan	CTMS
+IQVIA eTMF Wingspan,IQVIA eTMF Wingspan,Under Negotiation	CTMS
+IQVIA eTMF Wingspan,Paper TMF	CTMS
+No TMF	CTMS
+No TMF,No TMF	CTMS
+No TMF,Paper TMF	CTMS
+Other	CTMS
+Other	NOVIL2
+Paper TMF	CTMS
+Under Negotiation	CTMS
+	NOVIL2
+	CTMS
+///
+
+///////
 Select * from RDSCDASDF.S_CARPT.VW_DOC_TRK_FACT S1 where S1.stdy_id='CAEL101-301' AND S1.STDY_SITE_KEY='8003775298230106623';
 SELECT Distinct S1.stdy_id,S1.DOC_TRK_ID,S1.ITEM_STAT, S1.DOC_NM FROM RDSCDASDF.S_CARPT.VW_DOC_TRK_FACT S1, RDSCDASDF.S_CARPT.VW_DOC_DIM S2, Where S1.DOC_KEY=S2.DOC_KEY AND S1.ITEM_STAT in ('Fulfilled')-----,'Fulfilled with Reason','Pending','Proposed','Unfulfilled')
 AND S1.IBR_FLG ='TMF' AND S1.SRC_SYS_NM = 'WINGSPAN' AND S1.DOC_STAT NOT IN ('Cancelled', 'Obsolete', 'Superseded') 
