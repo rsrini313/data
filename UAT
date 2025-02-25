@@ -4,7 +4,27 @@ select distinct TMF_PLTFM,C2.iss_pri_src_sys_nm
 from RDSCDASDF.S_CARPT.VW_STDY_DIM C1 left outer JOIN RDSCDASDF.S_CARPT.VW_STDY_PROJ_DIM C2 on C1.STDY_ID=C2.STDY_ID
 where 
 c2.iss_pri_src_sys_nm IN ('CTMS','NOVIL2') ;
-
+/////
+Customer eTMF System
+Customer eTMF System.Other
+Customer eTMF System.Other,Customer eTMF System.Veeva
+Customer eTMF System.Other,No TMF,No TMF
+Customer eTMF System.Phlexglobal
+Customer eTMF System.Trial Interactive
+Customer eTMF System.Veeva
+Customer eTMF System.Wingspan
+IQVIA eTMF ELVIS
+IQVIA eTMF Wingspan
+IQVIA eTMF Wingspan,IQVIA eTMF Wingspan
+IQVIA eTMF Wingspan,IQVIA eTMF Wingspan,Under Negotiation
+IQVIA eTMF Wingspan,Paper TMF
+No TMF
+No TMF,No TMF
+No TMF,Paper TMF
+Other
+Paper TMF
+Under Negotiation
+/////
 
 /////
 Customer eTMF System	CTMS
